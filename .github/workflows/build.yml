@@ -268,18 +268,3 @@ jobs:
         with:
           name: SUMS
           path: SUMS.sha
-
-      - name: Upload Libraries to WhiskyBucket
-        if: ${{ github.ref == 'refs/heads/7.7' }}
-        env:
-          RCLONE_CONFIG_R2_TYPE: s3
-          RCLONE_CONFIG_R2_PROVIDER: Cloudflare
-          RCLONE_CONFIG_R2_ACL: private
-          RCLONE_CONFIG_R2_ACCESS_KEY_ID: ${{ secrets.RCLONE_ACCESS_KEY_ID }}
-          RCLONE_CONFIG_R2_SECRET_ACCESS_KEY: ${{ secrets.RCLONE_SECRET_ACCESS_KEY }}
-          RCLONE_CONFIG_R2_ENDPOINT: ${{ secrets.RCLONE_ENDPOINT }}
-        run: |
-          brew install rclone
-          rclone copy Libraries.tar.gz r2:whisky-bucket/Wine
-          rclone copy WhiskyWineVersion.plist r2:whisky-bucket/Wine
-          rclone copy SUMS.sha r2:whisky-bucket/Wine
