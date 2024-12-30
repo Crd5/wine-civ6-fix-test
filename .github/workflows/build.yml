@@ -59,16 +59,16 @@ jobs:
           curl -L https://raw.githubusercontent.com/Homebrew/homebrew-core/31209a399a7b40bf2cd3abd7aee2715547ccd5bd/Formula/m/mingw-w64.rb > mingw-w64.rb && brew install mingw-w64.rb
           rm mingw-w64.rb
 
-      - name: Echo Libs [DEBUG]
-        run: |
-          echo "Brew Libs"
-          ls $(brew --prefix)/lib
+      # - name: Echo Libs [DEBUG]
+      #   run: |
+      #     echo "Brew Libs"
+      #     ls $(brew --prefix)/lib
 
-          echo "FFmpeg Libs" 
-          ls $(brew --prefix ffmpeg@7)/lib
+      #     echo "FFmpeg Libs" 
+      #     ls $(brew --prefix ffmpeg@7)/lib
 
-          echo "GStreamer Libs"
-          ls $(brew --prefix gstreamer)/lib/gstreamer-1.0
+      #     echo "GStreamer Libs"
+      #     ls $(brew --prefix gstreamer)/lib/gstreamer-1.0
 
       - name: Add bison & cx-llvm to $PATH
         run: |
